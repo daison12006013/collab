@@ -1,0 +1,25 @@
+{
+    "name": "daison/collab",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daison Carino",
+            "email": "daison12006013@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Daison\\Collab\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Daison\\Tests\\": "tests/"
+        }
+    }
+}
