@@ -20,6 +20,10 @@ use Exception;
 class Collab
 {
     protected $args;
+    
+    const EMAIL_FORMAT = '@';
+    
+    const STATIC_CALL_FORMAT = '::';
 
     /**
      * Undocumented function
@@ -88,8 +92,8 @@ class Collab
         if (is_callable($callable)) {
             return [$callable, $this->args];
         } elseif (is_string($callable)) {
-            if (strpos($callable, '@') !== false) {
-                $exploded = explode('@', $callable);
+            if (strpos($callable, self::EMAIL_FORMAT) !== false) {
+                $exploded = explode(self::EMAIL_FORMAT, $callable);
 
                 return [
                     [new $exploded[0], $exploded[1]],
@@ -97,8 +101,8 @@ class Collab
                 ];
             }
 
-            if (strpos($callable, '::') !== false) {
-                $callable = explode('::', $callable);
+            if (strpos($callable, self::STATIC_CALL_FORMAT) !== false) {
+                $callable = explode(self::STATIC_CALL_FORMAT, $callable);
             }
         }
 
